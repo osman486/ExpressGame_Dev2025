@@ -14,17 +14,18 @@
          <span class="navbar-toggler-icon"></span>
        </button>
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-           <li class="nav-item">
-             <a class="nav-link" href="/game_devs/aaa">AAA геймдев</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="/game_devs/indie">Инди  геймдев</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="/game_devs/mobile">Мобильный геймдев</a>
-           </li>
-         </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+            <% if(typeof nav == 'object' && nav){
+                nav.forEach(function(item){
+           %>
+          <li class="nav-item">
+          <a  class="nav-link" href="/game_devs/<%= item.nick %>"><%= item.title %></a>
+          </li>
+            <%
+              })}
+            %>
+        </ul>
        </div>
      </div>
    </nav>
