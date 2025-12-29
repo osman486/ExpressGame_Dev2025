@@ -41,6 +41,7 @@ app.use(function(req,res,next){
  });
 
 app.use(require("./middlewares/createMenu"));
+app.use(require("./middlewares/createUser.js"))
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
