@@ -6,6 +6,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/game_dev2025");
 var session = require("express-session");
+var MongoStore = require('connect-mongo').MongoStore;
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -26,11 +27,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   session({
-    secret: "ThreeCats",
+    secret: "Game_dev",
     cookie: { maxAge: 60 * 1000 },
     proxy: true,
     resave: true,
     saveUninitialized: true,
+    store: MongoStore.create({mongoUrl: 'mongodb://localhost/game_dev2025'})
   })
 );
 app.use("/", indexRouter);
