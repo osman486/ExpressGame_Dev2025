@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/testMongoose2024');
 
-const Game_Dev = mongoose.model('game_dev', { name: String });
+var schema = mongoose.Schema({ name: String })
+schema.methods.game = function(){
 
-var game_devs = new Game_Dev({ name: 'aaa' });
-game_devs.save().then(() => console.log('gameeeeeee'));
+   console.log(this.name + " это высококачественная игра")
+
+}
+const Game_Dev = mongoose.model('Game_Dev', schema);
+
+const game = new Game_Dev({ name: 'aaa' });
+
+game.save().then(() => game.game());
