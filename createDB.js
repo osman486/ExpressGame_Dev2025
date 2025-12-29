@@ -18,7 +18,7 @@ const client = new MongoClient(url);
 
 // Database Name
 
-const dbName = 'game_dev2024';
+const dbName = 'game_dev2025';
 
 
 async function main() {
